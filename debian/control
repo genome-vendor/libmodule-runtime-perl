@@ -1,0 +1,29 @@
+Source: libmodule-runtime-perl
+Section: perl
+Priority: optional
+Build-Depends: debhelper (>= 7), perl (>= 5.10) | libmodule-build-perl
+Build-Depends-Indep: perl (>= 5.9.4)
+Maintainer: Nathaniel Nutter <nnutter@genome.wustl.edu>
+Standards-Version: 3.8.3
+Homepage: http://search.cpan.org/dist/Module-Runtime/
+
+Package: libmodule-runtime-perl
+Architecture: all
+Depends: ${perl:Depends}, ${misc:Depends}, perl (>= 5.6)
+Description: runtime module handling
+ The functions exported by this module deal with runtime handling of Perl
+ modules, which are normally handled at compile time. Module::Runtime avoids
+ using any other modules, so that it can be used in low-level infrastructure.
+ .
+ The parts of this module that work with module names apply the same syntax
+ that is used for barewords in Perl source. In principle this syntax can vary
+ between versions of Perl, and this module applies the syntax of the Perl on
+ which it is running. In practice the usable syntax hasn't changed yet, but
+ there's a good chance of it changing in Perl 5.18.
+ .
+ The functions of this module whose purpose is to load modules include
+ workarounds for three old Perl core bugs regarding require. These workarounds
+ are applied on any Perl version where the bugs exist, except for a case where
+ one of the bugs cannot be adequately worked around in pure Perl.
+ .
+ This description was automagically extracted from the module by dh-make-perl.
